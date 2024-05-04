@@ -3,7 +3,8 @@ import torch.nn as nn
 import numpy as np
 import argparse
 import pickle
-import os, sys
+import os
+import sys
 from torchvision import transforms
 from data_loader import get_loader
 from evaluate_captions import *

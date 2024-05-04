@@ -210,7 +210,7 @@ def eca_resnet152(k_size=[3, 3, 3, 3], num_classes=1_000, pretrained=False):
     Args:
         k_size: Adaptive selection of kernel size
         num_classes:The classes of classification
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
+        pretrained (bool): If True, returns a model pretrained on ImageNet
     """
     model = ResNet(ECABottleneck, [3, 8, 36, 3], num_classes=num_classes, k_size=k_size)
     model.avgpool = nn.AdaptiveAvgPool2d(1)

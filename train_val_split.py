@@ -18,7 +18,7 @@ if not os.path.isdir(val_dir):
 
 with open(train_ids_csv_orig, "r", newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
-    img_ids =list(csvreader)
+    img_ids = list(csvreader)
 img_ids = [int(i) for i in img_ids[0]]
 
 # print(img_ids)
@@ -27,11 +27,11 @@ split_id = int(split_size*len(img_ids))
 train_ids = img_ids[0:split_id]
 val_ids = img_ids[split_id:]
 
-with open(val_ids_csv,"w", newline='') as csvfile:
+with open(val_ids_csv, "w", newline='') as csvfile:
     csvwriter = csv.writer(csvfile, dialect='excel')
     csvwriter.writerow(val_ids)
 
-with open(train_ids_csv,"w", newline='') as csvfile:
+with open(train_ids_csv, "w", newline='') as csvfile:
     csvwriter = csv.writer(csvfile, dialect='excel')
     csvwriter.writerow(train_ids)
     

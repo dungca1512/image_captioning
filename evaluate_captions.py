@@ -4,7 +4,8 @@ from nltk.translate.bleu_score import SmoothingFunction
 import numpy as np
 from pycocotools.coco import COCO
 
-def evaluate_captions( true_captions_path, generated_captions_path ):
+
+def evaluate_captions(true_captions_path, generated_captions_path):
     """
     Takes json formatted true and predicted captions, and calculates BLEU1, BLEU4 scores
     :param true_captions_path: path to json file with true COCO captions, used with pycocotools.coco
@@ -12,11 +13,10 @@ def evaluate_captions( true_captions_path, generated_captions_path ):
     
     :return: BLEU1, BLEU2 score tuple
     """
-    
-    
+
     coco = COCO(true_captions_path)
     cocoRes = coco.loadRes(generated_captions_path)
-    
+
     score1 = 0
     score4 = 0
 
@@ -31,16 +31,16 @@ def evaluate_captions( true_captions_path, generated_captions_path ):
         score1 += sentence_bleu(reference, candidate, weights=(1, 0, 0, 0), smoothing_function=smoother.method1)
         score4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smoother.method1)
 
-    bleu1 = 100*score1/len(cocoRes.getImgIds())
-    bleu4 = 100*score4/len(cocoRes.getImgIds())
+    bleu1 = 100 * score1 / len(cocoRes.getImgIds())
+    bleu4 = 100 * score4 / len(cocoRes.getImgIds())
 
-        
-    print("BLEU 1:", np.round(bleu1,2), 
-          "BLEU 4:", np.round(bleu4,2))
-    
+    print("BLEU 1:", np.round(bleu1, 2),
+          "BLEU 4:", np.round(bleu4, 2))
+
     return bleu1, bleu4
 
-## SAMPLE USAGE
+
+# SAMPLE USAGE
 """
 true_annotations_file ='./data/annotations/captions_val2014.json'
 pred_annotations_file = 'baseline_lstm_captions.json'
