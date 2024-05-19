@@ -54,7 +54,7 @@ def main(args):
         for entry in coco.imgToAnns[img_id]:
             ids.append(entry['id'])
 
-    # create data loader
+    # Create data loader
     test_loader = get_loader(args.image_dir, args.caption_path, ids, vocab,
                              transform, 1, shuffle=False, num_workers=0)
 
@@ -68,10 +68,10 @@ def main(args):
     decoder = decoder.to(device)
 
     # Load the trained model parameters
-    encoder.load_state_dict(torch.load(args.encoder_path))
-    decoder.load_state_dict(torch.load(args.decoder_path))
+    encoder.load_state_dict(torch.load(args.encoder_path, map_location=device))
+    decoder.load_state_dict(torch.load(args.decoder_path, map_location=device))
 
-    # evaluate loss
+    # Evaluate loss
     running_loss = 0.0
     num_imgs = len(ids)
     for i, (images, captions, lengths) in enumerate(test_loader):
@@ -91,7 +91,8 @@ def main(args):
     print("Test Loss : %.2f" % (test_loss))
 
     print("\rWriting captions to json file...")
-    # write to json file
+
+    # Write to json file
     anns = []
     for img_id in tqdm(testIds):
         # Prepare an image
@@ -139,7 +140,7 @@ if __name__ == '__main__':
                         help='input image for generating caption')
     parser.add_argument('--caption_path', type=str,
                         default="./data/annotations/captions_val2014.json",
-                        help='test captions for evaluation')  # validation set of coco is used as test.
+                        help='test captions for evaluation')
     parser.add_argument('--encoder_path', type=str,
                         default='./models/img_cap/encoder-best.ckpt',
                         help='path for trained encoder')

@@ -142,7 +142,7 @@ def main(args):
                 torch.save(encoder.state_dict(), os.path.join(
                     model_path, 'encoder-best.ckpt'))
 
-            #write results to csv
+            # Write results to csv
             with open("./results/{}_results.csv".format(model_name), 'a+', newline='') as csv_file:
                 writer = csv.writer(csv_file, delimiter=',')
                 # writer.writerow(["Epoch", "Train Loss", "Val Loss"])

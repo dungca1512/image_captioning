@@ -1,3 +1,4 @@
 {
-  "pythonPath": "/home/dungca/anaconda3/envs/image_captioning/bin/python"
+  "pythonPath": "/home/dungca/anaconda3/bin/python",
+  "uiMode": "multi-document"
 }

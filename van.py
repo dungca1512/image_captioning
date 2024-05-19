@@ -160,7 +160,7 @@ class VAN(nn.Module):
                  mlp_ratios=[4, 4, 4, 4], drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm,
                  depths=[3, 4, 6, 3], num_stages=4, flag=False):
         super().__init__()
-        if flag == False:
+        if flag==False:
             self.num_classes = num_classes
         self.depths = depths
         self.num_stages = num_stages

@@ -41,8 +41,8 @@ def main(args):
     decoder = decoder.to(device)
 
     # Load the trained model parameters
-    encoder.load_state_dict(torch.load(args.encoder_path, map_location="cpu"))
-    decoder.load_state_dict(torch.load(args.decoder_path, map_location="cpu"))
+    encoder.load_state_dict(torch.load(args.encoder_path, map_location=device))
+    decoder.load_state_dict(torch.load(args.decoder_path, map_location=device))
 
     # Prepare an image
     image = load_image(args.image, transform)

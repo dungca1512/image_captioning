@@ -7,14 +7,14 @@ The goal is to perform image captioning task on Common Objects in Context (COCO)
 
 #### Description of files
 `data_loader.py` - Create Pytorch Dataset and data loader for COCO dataset. <br/>
-`evaluate_captions.py` - Provides evaluation function to calculate BLEU1 and BLEU4 scores from true and predicted captions json file<br/>
+`evaluate_captions.py` - Provides evaluation function to calculate BLEU1 and BLEU4 scores from true and predicted captions json file. <br/>
 `get_datasets.ipynb` - Python notebook to fetch COCO dataset from DSMLP cluster's root directory and place it in 'data' folder. Gets both images and annotations.<br/>
-`train_val_split.csv` - takes 20% of dataset from training and put it in validation. Creates a `ValImageIds.csv` also <br/>
-`TestImageIds.csv` - COCO dataset image ids for test set <br/>
-`TrainImageIds.csv` - COCO dataset image ids for train set
+`train_val_split.csv` - takes 20% of dataset from training and put it in validation. Creates a `ValImageIds.csv` also. <br/>
+`TestImageIds.csv` - COCO dataset image ids for test set. <br/>
+`TrainImageIds.csv` - COCO dataset image ids for train set.
 
 ## Usage
-Note: A subset of train data in COCO has been used and it has further been divided into train and validation set. A subset of validation data in COCO has been used as testing data.
+Note: A subset of train data in COCO has been used, and it has further been divided into train and validation set. A subset of validation data in COCO has been used as testing data.
 #### 1. Preprocessing
 
 Execute `get_datasets.ipynb` to copy dataset to `data/images`
@@ -35,7 +35,7 @@ python train.py --model_name [your_model_name]
 #### 3. Test the model 
 ```bash
 python test.py --model_name [your_model_name]
-python infer.py --image='path/to/image'
+python infer.py --image 'path/to/image'
 ```
 `test.py` to evaluate on entire dataset and `infer.py` to infer results from one image.
 <br>
@@ -88,7 +88,7 @@ python infer.py --image='path/to/image'
 <!-- ![Image Example 1](figures/output2.jpg) -->
 <img src="figures/output2.jpg" width="300" align: center> 
 
-**Prediction:** 'A train is travelling down the track in a citys'
+**Prediction:** 'A train is travelling down the track in a city'
 
 ## Summary
 
