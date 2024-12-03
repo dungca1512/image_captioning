@@ -11,7 +11,7 @@ train_ids_csv = "./TrainImageIds.csv"
 val_ids_csv = "./ValImageIds.csv"
 
 split_size = 0.8
-coco = COCO('./data/annotations/captions_train2014.json')
+coco = COCO('/kaggle/input/coco2014/captions/annotations/captions_train2014.json')
 
 if not os.path.isdir(val_dir):
     os.makedirs(val_dir)
