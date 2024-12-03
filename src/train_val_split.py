@@ -4,11 +4,11 @@ from shutil import copy
 from pycocotools.coco import COCO
 
 
-val_dir = "./data/images/val/"
+val_dir = "/kaggle/working/image_captioning/data/images/val/"
 train_dir = "/kaggle/input/coco2014/train2014/train2014/"
-train_ids_csv_orig = "./TrainImageIdsOriginal.csv"
-train_ids_csv = "./TrainImageIds.csv"
-val_ids_csv = "./ValImageIds.csv"
+train_ids_csv_orig = "/kaggle/working/image_captioning/csv/TrainImageIdsOriginal.csv"
+train_ids_csv = "/kaggle/working/image_captioning/csv/TrainImageIds.csv"
+val_ids_csv = "/kaggle/working/image_captioning/csv/ValImageIds.csv"
 
 split_size = 0.8
 coco = COCO('/kaggle/input/coco2014/captions/annotations/captions_train2014.json')
