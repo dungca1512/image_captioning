@@ -43,23 +43,23 @@ def main(args):
 
     # Get ids
     ids = []
-    with open('./TrainImageIds.csv', 'r') as f:
+    with open('/kaggle/working/image_captioning/csv/TrainImageIds.csv', 'r') as f:
         reader = csv.reader(f)
         trainIds = list(reader)
     trainIds = [int(i) for i in trainIds[0]]
-    coco = COCO('./data/annotations/captions_train2014.json')
+    coco = COCO('/kaggle/input/coco2014/captions/annotations/captions_train2014.json')
     for img_id in trainIds:
         for entry in coco.imgToAnns[img_id]:
             ids.append(entry['id'])
 
     # Get val ids
     val_ids = []
-    with open('./ValImageIds.csv', 'r') as f:
+    with open('/kaggle/working/image_captioning/csv/ValImageIds.csv', 'r') as f:
         reader = csv.reader(f)
         valIds = list(reader)
 
     valIds = [int(i) for i in valIds[0]]
-    coco = COCO('./data/annotations/captions_train2014.json')
+    coco = COCO('/kaggle/input/coco2014/captions/annotations/captions_val2014.json')
     for img_id in valIds:
         for entry in coco.imgToAnns[img_id]:
             val_ids.append(entry['id'])
